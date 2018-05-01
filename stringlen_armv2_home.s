@@ -34,7 +34,7 @@ _start:
 		mov r3, #0                      @;zero out r3
 		ldr r1, =testgreeting           @;place address of myStr in r1
 		ldr r2, =glen                   @;place address of len in r2
-		mov r7, #4                      @;put write syscall 4 write in r7
+		mov r7, #4                      @;put write syscall 4 write in r7 per EABI
 	        
 		@@@@@@@@;Call write syscall@@@@@@@@;
 	        swi #0                          @;sw interrupt
