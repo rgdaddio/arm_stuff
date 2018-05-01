@@ -70,7 +70,7 @@ string_len:
 		mov r11, #0                     @;set up counter
 
 not_done:
-		ldrb r9,[r12],#1		@;copy byte into r17
+		ldrb r9,[r12],#1		@;copy byte into r9
 		teq r9, #0			@;test for null term
 		beq done_loop			
 		add r11, #1			@;increment counter
@@ -89,6 +89,6 @@ done_loop:
 .global lexit
         .type lexit,%function
 lexit:
-                mov r7, #1			@exit sys call 1
-                swi #0				@sw interrupt
+                mov r7, #1			@;exit sys call 1
+                swi #0				@;sw interrupt
 
