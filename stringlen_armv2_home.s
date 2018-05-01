@@ -66,7 +66,7 @@ _start:
 .global string_len
 	.type string_len,%function
 string_len:
-        	mov r12, r4                     @;jpreserve r4
+        	mov r12, r4                     @;preserve r4
 		mov r11, #0                     @;set up counter
 
 not_done:
