@@ -15,7 +15,7 @@ testgreeting:
 	                glen = . - testgreeting
 
 basicteststr:
-	                .string "test\n"
+	                .string "@Rte|st\n"
 	                len = .- basicteststr
 
 resultstr:
@@ -48,6 +48,17 @@ _start:
 			mov r7, #4
 			swi #0
 
+			ldr r4, =basicteststr
+			
+			bl to_upper
+			
+			mov r0, #1	
+			mov r1, r4
+                        ldr r2, =len
+                        mov r7, #4
+                        swi #0
+ 
+
 			mov r0, #1
 			ldr r1, =resultstr		@ ;reload r1 with address fo resultstr
 			ldr r2, =rlen			@ ;same steps as above
@@ -70,15 +81,20 @@ to_upper:
 			mov r12, r4                     @;preserve r4
 top_of_loop:
 			ldrb r9,[r12],#1		@;copy byte into r9
+			cmp r9, #0xA
+			beq range_exit
+			mov r6, #0x61
+			cmp r9, r6			@;check lower bound of lower case
+#			blt range_exit
+			blt top_of_loop
+                        mov r6, #0x7a
+			cmp r9, r6			@;check upper bound of lower case
+#			bgt range_exit
+			bgt top_of_loop
 
-			teq r9, #0x60			@;check lower bound of lower case
-			blt range_exit
-
-			teq r9, #0x7b			@;check upper bound of lower case
-			bgt range_exit
-
-			sub r9, r9, 0x20		@;make it upper case
-			str r9, [r12]
+			sub r9, r9, #0x20		@;make it upper case
+			sub r7, r12, #1
+			strb r9, [r7]
 			b top_of_loop
 
 range_exit:	
