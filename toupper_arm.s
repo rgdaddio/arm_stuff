@@ -91,8 +91,8 @@ top_of_loop:
 			bgt top_of_loop
 
 			sub r9, r9, #0x20		@;make it upper case
-			sub r7, r12, #1
-			strb r9, [r7]
+			sub r7, r12, #1                 @;write to addr bfore autoincr on ldrb
+			strb r9, [r7]			@;write byte to memory.
 			b top_of_loop
 
 range_exit:	
