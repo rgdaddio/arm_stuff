@@ -1,5 +1,5 @@
-@@@@@@@@;assemble: as -o stringlen.o stringlen.S
-@@@@@@@@;link: ld -s -o stringlen stringlen.o
+@@@@@@@@;assemble: as --gdwarf-2 toupper_arm.s -o toupper_arm.o
+@@@@@@@@;link: ld -s -o toupper_arm toupper_arm.o
 @@@@@@@@;Using GNU LD and GNU AS
 @@@@@@@@;Port from old Openrisc code super dumb toupper
 @@@@@@@@;ARM comments are '@' and sometimes '#' here we use '@;' and no '#' for comments
