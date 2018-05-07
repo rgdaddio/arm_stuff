@@ -102,9 +102,9 @@ not_done:
 			bx lr	
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@;
-@; string_len()
-@;string for len in r4
-@;returns r4 memory with length
+@; lexit()
+@; no arg
+@; returns to os
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@;
 .global lexit
                 .type lexit,%function
