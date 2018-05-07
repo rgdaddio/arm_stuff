@@ -1,7 +1,7 @@
 @@@@@@@@;as --gdwarf-2 hello_world_arm.s -o hello_world_arm.o
 @@@@@@@@;ld -s -o hello_world hello_world.o
 @@@@@@@@;Using GNU LD and GNU AS
-@@@@@@@@;Port from old Openrisc code the old stand by 
+@@@@@@@@;Port from old Openrisc code the old hello world standby 
 @@@@@@@@;ARM comments are '@' and sometimes '#' here we use '@;' and no '#' for comments
 @@@@@@@@;'#' hash is reserved for immediate values in instructions in this code
 
@@ -20,6 +20,11 @@ myStr:
 	.global _start                  ;@set up a start routine
 	.type _start, %function
 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@;
+@; _start()
+@; uses data section strings
+@; 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@;	
 _start:
 	mov r0, #1                      @;place stdout fd 1 in r0
 	mov r3, #0                      @;zero out r3

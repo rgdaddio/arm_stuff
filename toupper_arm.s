@@ -28,7 +28,7 @@ resultstr:
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@;
 @; _start()
 @; uses data section strings
-@; call string_len and lexit
+@; call to_upper and lexit
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@;	
 	                .global _start                  @;set up a start routine
 	                .type _start, %function
@@ -99,9 +99,9 @@ range_exit:
 			bx lr
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@;
-@; string_len()
-@;string for len in r4
-@;returns r4 memory with length
+@; lexit()
+@; no arg
+@; returns to os 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@;
 .global lexit
 	        .type lexit,%function

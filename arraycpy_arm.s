@@ -1,7 +1,7 @@
 @@@@@@@@;assemble: as --gdwarf-2 arraycpy_arm.s -o arraycpy_arm.o
 @@@@@@@@;link: ld -s -o arraycpy_arm arraycpy_arm.o
 @@@@@@@@;Using GNU LD and GNU AS
-@@@@@@@@;Port from old Openrisc code super dumb toupper
+@@@@@@@@;Port from old Openrisc code a simple array copy
 @@@@@@@@;ARM comments are '@' and sometimes '#' here we use '@;' and no '#' for comments
 @@@@@@@@;'#' hash is reserved for immediate values in instructions in this code
 
@@ -34,7 +34,12 @@ resultcpy:
 
 
 .section                .text
-
+	
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@;
+@; _start()
+@; uses data section strings
+@; call string_len and lexit
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@;	
 .global _start
 .type _start,%function
 _start:
@@ -77,6 +82,11 @@ _start:
 
 			b lexit
 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@;
+@; arraycpy()
+@; original array in r4
+@; returns r6 with ptr to copy
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@;	
 .global arraycpy 
 .type arraycpy,%function
 arraycpy:
