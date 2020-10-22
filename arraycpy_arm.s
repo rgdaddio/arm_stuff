@@ -20,12 +20,12 @@ testgreeting:
 
 
 resultstr:
-        .string " is in first array\n"
+        .string " => is in first array\n"
         rlen = . - resultstr
 
 
 resultcpy:
-        .string " is copied to second array\n"
+        .string " => is copied to second array\n"
         clen = . - resultcpy
 
         
