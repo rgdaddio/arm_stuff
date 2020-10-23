@@ -1,2 +1,2 @@
 # arm_stuff
-Some basic are assembly examples using GNU assembler and linker
+Some basic Arm assembly examples using GNU assembler and linker
